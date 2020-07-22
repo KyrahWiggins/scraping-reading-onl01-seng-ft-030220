@@ -1,6 +1,12 @@
 require_relative './spec_helper'
 require_relative '../lib/scraper.rb'
-
+require 'nokogiri'
+require 'open-uri'
+ 
+html = open("https://flatironschool.com/")
+doc = Nokogiri::HTML(html)
+ 
+doc.css(".inlineMobileLeft-2Yo002.imageTextBlockGrid3-2XAK6G")
 describe "Scraper" do
 
   let(:scraper) {Scraper.new}
